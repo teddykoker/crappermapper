@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="toiletFinder">
+<head>
+
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="LYUhoXo7nvnsPDPq4XlyegbHRd4uXhAdZ76F176_xzc" />
+
+    <!-- https://github.com/jakiestfu/Snap.js/ -->
+    <link href="./css/snap.css" rel="stylesheet"/>
+
+    <!-- https://developers.google.com/fonts/ -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+    <!-- my styles -->
+    <link href="./css/styles.css" rel="stylesheet"/>
+
+    <!-- https://developers.google.com/maps/documentation/javascript/ -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+    <!-- https://docs.angularjs.org/api -->
+    <script src="./lib/angular.min.js"></script>
+
+    <!-- https://github.com/jakiestfu/Snap.js/ -->
+    <script src="./lib/snap.min.js"></script>
+
+    <!-- https://jtrussell.github.io/angular-snap.js/ -->
+    <script src="./lib/angular-snap.min.js"></script>
+
+    <!-- angular application -->
+    <script src="./app/app.js"></script>
+
+
+    <title>Crapper Mapper</title>
+    <meta name="author" content="Tom Koker">
+</head>
+
+<body>
+    <div snap-content snap-options="snapOptions" ng-controller="MapController">
+        <div id="map"></div>
+        <div id="addButton" snap-toggle="left">
+            Want to add a toilet?
+        </div>
+    </div>
+    <div snap-drawers ng-controller="AddController">
+        <div snap-drawer="left">
+            <div class = "side-header">
+                New Toilet
+            </div>
+            <div class = "side-content">
+                <form name="form" novalidate>
+                    Search:<br/>
+                    <input type="text" id="search" /><br/>
+                    <div id="formMap"></div><br/>
+                    Name: <br/>
+                    <input type="text" placeholder="What is this?" ng-model="name" required/><br/>
+                    Directions:<br/>
+                    <textarea type="text" placeholder="How can I find this?" ng-model="directions" required></textarea><br/>
+                    Notes:<br/>
+                    <textarea type="text" placeholder="What should others know?" ng-model="notes" required></textarea><br/>
+                    <input type="submit" ng-click="add()" value="Add"/>           
+                </form>
+            </div> 
+        </div>
+        <div snap-drawer="right" ng-controller="DetailController">
+            <div class = "side-header">
+                {{place.name}}
+            </div>
+            <div class = "side-content">
+                <p><strong>How to find: </strong>{{place.directions}}</p>
+                <p><strong>Notes: </strong>{{place.notes}}</p>
+                <br>
+                <p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_donations">
+                        <input type="hidden" name="business" value="NV2RAXT2HPYNA">
+                        <input type="hidden" name="lc" value="US">
+                        <input type="hidden" name="item_name" value="Crapper Mapper">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+                        <input type="submit" value="Donate" name="submit" title="PayPal - The safer, easier way to pay online!" class="paypal-button">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        <small><em>Just a student trying to make a living. You will
+                            forever poop in piece.</em></small>
+                        </form>
+                    </p>
+                    <p>
+                        <form method="link" action="http://www.facebook.com/crappermapper/">
+                            <input type="submit" value="Facebook" title="Follow Crapper Mapper" class="facebook-button">
+                            <small><em>Follow Crapper Mapper on Facebook!</em></small>
+                        </form>
+                    </p>
+                </div>      
+            </div>
+        </div>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60224025-2', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+
+  </body>
+
+
+  </html>

@@ -1,0 +1,88 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400
+}
+input, textarea {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 98%;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty {
+    border-color: red;
+}
+
+textarea{
+    resize:vertical;
+}
+
+#map
+{
+    /* map takes up full viewport*/
+    height: 100vh;
+    width: 100vw;
+    
+    /* put map in back */
+    z-index: 2;
+
+}
+#formMap
+{
+    margin-top: 10px;
+    height: 190px;
+}
+
+#addButton
+{
+    left: 30px;
+    top: 30px;
+    position: absolute;
+    background-color: #fff;
+    z-index: 10;
+    padding: .5em;
+    border-width: 5px;
+    cursor: pointer;
+}
+.paypal-button
+{
+    background-color: #FDAE43;
+    cursor: pointer;
+    border: 0;
+}
+.paypal-button:hover
+{ 
+    background: #FEC97E; 
+}
+.facebook-button
+{
+    background-color: #3b5998;
+    cursor:  pointer;
+    border: 0;
+    color: #fff;
+}
+.facebook-button:hover
+{
+    background: #617FBE;
+}
+
+.side-header {
+    background-color: #0e67a8;
+    position: relative;
+    padding: 1em;
+    color: #fff;
+    font-size: 1.5em
+}
+
+.side-content 
+{
+    padding: 1em;
+}
+
+
+
